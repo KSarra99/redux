@@ -1,23 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import {useState} from 'react'
+import Addtask from './Components/Addtask/Addtask';
+import FilterTask from './Components/FilterTask/FilterTask';
+import TodoList from './JS/TodoList/TodoList';
 
 function App() {
+  const [done, setDone] = useState(false);
+  const [unDone, setUndone] = useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+<Addtask/>
+<div style={{ textAlign: "center" }}>
+  <FilterTask setDone={setDone} setUndone={setUndone}/>
+      
+      </div>
+<TodoList  done={done} unDone={unDone}/>
     </div>
   );
 }
